@@ -6,8 +6,6 @@ const Movies = ({ movies }) => {
           <ul>
             <li className="movie-poster"><img src={movie.Poster} alt={movie.Title} /></li>
             <li><b>{movie.Title}</b></li>
-            <li>Type: {movie.Type}</li>
-            <li>Year: {movie.Year}</li>
           </ul>
         </div>
       ))}
