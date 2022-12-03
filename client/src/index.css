@@ -1,0 +1,28 @@
+.row-movies {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-movies {
+  text-align: center;
+  float: left;
+  width: 33.33%;
+}
+
+img {
+  height: 427px;
+  width: 300px;
+}
+
+li {
+  list-style-type: none;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  [class*='col-movies'] {
+    text-align: center;
+    float: left;
+    width: 50%;
+  }
+}
