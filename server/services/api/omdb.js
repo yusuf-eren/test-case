@@ -1,11 +1,15 @@
 import fetch from 'node-fetch';
-import cache from 'memory-cache';
+import { getFromCache, saveToCache } from '../cache.js';
 
 const movieRequest = async (params) => {
   const { keyword, page } = params;
 
-  const cachedMovies = await cache.get(`${keyword}#${page}`);
-  if (cachedMovies) return cachedMovies;
+  const cachedMovies = await getFromCache(keyword, page);
+
+  if (cachedMovies) {
+    await saveToCache(keyword, page, cachedMovies, 30);
+    return cachedMovies;
+  }
 
   const url = 'http://www.omdbapi.com/?';
   let searchParams = new URLSearchParams({
@@ -28,7 +32,7 @@ const movieRequest = async (params) => {
     movies['Search'].push(...secondPage['Search']);
   }
 
-  await cache.put(`${keyword}#${page}`, movies, 1000 * 30);
+  await saveToCache(keyword, page, movies, 30);
 
   return movies;
 };
