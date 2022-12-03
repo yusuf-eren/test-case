@@ -1,0 +1,32 @@
+{
+  "name": "kns",
+  "version": "1.0.0",
+  "description": "```",
+  "main": "index.js",
+  "scripts": {
+    "install": "concurrently \"npm run install:server\" \"npm run install:client\"",
+    "install:client": "cd ./client && npm install",
+    "install: server": "cd ./server && npm install",
+    "start": "concurrently \"npm run start:server\" \"npm run start:client\"",
+    "start:server": "cd ./server && npm start",
+    "start:client": "cd ./client && npm start",
+    "dockerize": "npm run dockerize:client && npm run dockerize:server",
+    "dockerize:client": "cd ./client && docker build -t client .",
+    "dockerize:server": "cd ./server && docker build -t server .",
+    "docker": "concurrently \"docker run -p 3001:3001 server\" \"docker run -p 3000:3000 client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yusuf-eren/test-case.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yusuf-eren/test-case/issues"
+  },
+  "homepage": "https://github.com/yusuf-eren/test-case#readme",
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  }
+}
