@@ -14,6 +14,10 @@ npm install
 npm run install:all
 ```
 
+### Create `.env` file in your `/server` directory and add your API Key;
+```
+OMDB_API_KEY=<YOUR-API-KEY>
+```
 # How to start?
 
 ### Start app with one command in local;
