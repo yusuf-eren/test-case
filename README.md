@@ -1,1 +1,1 @@
-# KNS Bilişim Test Case
+# Test Case
